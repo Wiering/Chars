@@ -30,15 +30,21 @@ begin
   if (ParamCount < 1) then
   begin
     WriteLn ('syntax: chars filename');
-    Halt (1);
+    Halt (0);
   end;
 
   for i := 0 to 255 do
     Count[i] := 0;
 
   Filename := ParamStr (1);
+  if (not FileExists (Filename)) then
+  begin
+    WriteLn ('file not found: ' + Filename);
+    Halt (1);
+  end;
   AssignFile (FI, Filename);
   Reset (FI);
+
   NumRead := BUF_SIZE;
   while NumRead = BUF_SIZE do
   begin
