@@ -11,7 +11,7 @@ program Chars;
   var
     Filename: string;
     FI: file of Char;
-    Count: array[0..255] of Integer;
+    Count: array[0..255] of LongInt;
     Buffer: array[0..BUF_SIZE - 1] of Char;
     NumRead: Integer;
 
@@ -20,7 +20,7 @@ program Chars;
     H = 32;
 
   var
-    i, j, k, n: Integer;
+    i, j, n: Integer;
     ch: Char;
     max: Integer;
     wd: Integer;
